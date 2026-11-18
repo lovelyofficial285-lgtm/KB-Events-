@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>KB Events | Design, Décor & Hire in London</title>
+<meta name="description" content="KB Events is a unique design, décor and hire company for those who want to celebrate in style.">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--fg:#1e1e1e;--dark:#1e1e1e;--light:#fff;--blush:#e9dcd6;--gold:#c9a96a;color-scheme:light dark}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#fff;--fg:#1e1e1e}}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{font-family:'Inter Tight',Arial,sans-serif;background:var(--bg);color:var(--fg);padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;line-height:1.05}
+h3 em,h1 em{font-style:italic}
+a{color:inherit}
+img{display:block;max-width:100%}
+header{position:fixed;inset:0 0 auto;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:calc(1.5vw + env(safe-area-inset-top,0px)) 2vw 1.5vw;color:#fff;transition:background .3s}
+header.shrink{background:var(--dark)}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.7rem;letter-spacing:.15em;text-decoration:none}
+nav{display:flex;gap:2rem;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase}
+nav a{text-decoration:none}
+@media(max-width:700px){nav{display:none}}
+.hero{position:relative;height:100vh;overflow:hidden;display:flex;align-items:flex-end;justify-content:center;color:#fff;text-align:center;padding-bottom:8vh;background:#111}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.55),rgba(0,0,0,.15) 60%);z-index:1}
+.slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.4s}
+.slide.on{opacity:1}
+.hero .t{position:relative;z-index:2;padding:0 5vw}
+.hero h4{font-style:italic;font-weight:400;letter-spacing:.2em;margin-bottom:1rem;font-size:1rem}
+.hero h1{font-size:clamp(2.4rem,7vw,6rem);letter-spacing:.02em}
+.sec{padding:10vh 7vw}
+.split{display:grid;grid-template-columns:5fr 2fr 5fr;align-items:center}
+.split .txt{grid-column:1}.split .img{grid-column:3}
+.ph{border-radius:3px;aspect-ratio:3/4;width:100%;object-fit:cover;background:#ddd}
+.split h3{font-size:clamp(1.8rem,3.5vw,3rem);margin-bottom:1.5rem}
+.split p{line-height:1.7;margin-bottom:1rem;text-align:justify}
+.btn{display:inline-block;margin-top:1.5rem;padding:1rem 2rem;background:var(--dark);color:#fff;text-decoration:none;text-transform:uppercase;letter-spacing:.14em;font-size:.8rem}
+.btn.light{background:#fff;color:var(--dark)}
+.btn.t{background:none;color:inherit;border-bottom:1px solid;padding:.4rem 0}
+.dark{background:var(--dark);color:#fff}
+.dark .split{direction:ltr}
+.dark .split .img{grid-column:1;grid-row:1}.dark .split .txt{grid-column:3;grid-row:1}
+.collage{position:relative;background:var(--blush);min-height:130vh;padding:0}
+.collage .ph{position:absolute;width:20%}
+.collage h1{position:sticky;top:40vh;text-align:center;font-size:clamp(2.2rem,6vw,5.5rem);z-index:5;color:var(--dark);padding:0 15vw;mix-blend-mode:normal}
+.c1{left:18%;top:8%}.c2{left:4%;top:42%;width:16%!important}.c3{right:6%;top:4%;width:18%!important}.c4{right:20%;top:36%}.c5{left:30%;top:70%;width:16%!important}.c6{right:5%;top:68%;width:17%!important}
+@media(max-width:700px){.split{display:block}.split .img{margin-top:2rem}.collage .ph{width:30%!important}.collage{min-height:110vh}}
+.rev{background:#111;color:#fff;text-align:center}
+.rev h2{font-size:1.4rem;letter-spacing:.2em;margin-bottom:3rem}
+.cards{display:flex;gap:1.5rem;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:1rem}
+.card{flex:0 0 min(340px,80vw);scroll-snap-align:center;background:#1e1e1e;border:1px solid #333;padding:2.2rem;text-align:left;border-radius:3px}
+.card .st{color:var(--gold);letter-spacing:.2em;margin-bottom:1rem}
+.card p{font-family:'Cormorant Garamond',serif;font-size:1.5rem;line-height:1.3;font-weight:300}
+.card small{display:block;margin-top:1.2rem;opacity:.6;letter-spacing:.1em;text-transform:uppercase;font-size:.7rem}
+.type{text-align:center;background:var(--dark);color:#fff}
+.type p{letter-spacing:.3em;font-size:.9rem;margin-bottom:1rem}
+.type h2{font-size:clamp(2rem,5vw,4rem);min-height:1.2em}
+.cur:after{content:"|";animation:b 1s infinite}@keyframes b{50%{opacity:0}}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3rem}
+.grid .ph{aspect-ratio:3/4}
+.grid small{display:block;margin-top:.6rem;text-align:left;letter-spacing:.1em;font-size:.8rem}
+.cta{position:relative;min-height:90vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#fff;background:#111;padding:10vh 10vw;overflow:hidden}
+.cta .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cta:before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.5);z-index:1}
+.cta h2,.cta a{position:relative;z-index:2}
+.cta h2{font-size:clamp(2rem,5vw,4.5rem)}
+footer{background:var(--dark);color:#fff;padding:6vw 2vw 3vw;border-top:1px solid #fff4}
+.fg{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem}
+@media(max-width:700px){.fg{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr}}
+footer h4{margin-bottom:.8rem;letter-spacing:.15em;font-size:.85rem}
+footer p,footer a{line-height:1.9;font-size:.9rem;display:block;text-decoration:none}
+.copy{display:flex;justify-content:space-between;margin-top:3rem;font-size:.75rem;opacity:.7}
+
+/* ---- Enquiry form + map (new) ---- */
+.enq{background:var(--blush);color:var(--dark);padding:10vh 7vw}
+.enq-wrap{display:grid;grid-template-columns:1fr 1fr;gap:4vw;align-items:stretch}
+.enq h2{font-size:clamp(2rem,4vw,3.5rem);margin-bottom:1rem}
+.enq .lead{line-height:1.7;margin-bottom:2rem;max-width:34rem}
+.enq form{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.enq .f{display:flex;flex-direction:column;gap:.4rem}
+.enq .f.full{grid-column:1/-1}
+.enq label{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase}
+.enq input,.enq select,.enq textarea{font:inherit;font-size:.95rem;padding:.9rem 1rem;border:1px solid #1e1e1e55;background:#fff;color:var(--dark);border-radius:2px;width:100%}
+.enq textarea{min-height:120px;resize:vertical}
+.enq input:focus,.enq select:focus,.enq textarea:focus{outline:2px solid var(--gold);outline-offset:1px}
+.enq button.btn{border:0;cursor:pointer;font-family:inherit;justify-self:start;margin-top:.5rem}
+.enq .ok{grid-column:1/-1;font-size:.9rem;display:none}
+.map-box{display:flex;flex-direction:column;gap:1rem;min-height:520px}
+.map-box iframe{flex:1;width:100%;min-height:420px;border:0;border-radius:3px}
+.map-box .addr{font-size:.9rem;line-height:1.7}
+.map-box .addr a{display:inline;text-decoration:underline}
+@media(max-width:900px){.enq-wrap{grid-template-columns:1fr}.enq form{grid-template-columns:1fr}.map-box{min-height:380px}}
+</style>
+</head>
+<body>
+<header id="hd"><a class="logo" href="#">KB EVENTS</a>
+<nav><a href="#about">About</a><a href="#services">Services</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a></nav></header>
+
+<section class="hero">
+<img class="slide on" src="family event.webp" alt="KB Events hero 1">
+<img class="slide" src="birthday img.webp" alt="KB Events hero 2">
+<img class="slide" src="girls party.webp" alt="KB Events hero 3">
+<img class="slide" src="glas of vine.webp" alt="KB Events hero 4">
+<div class="t"><h4>WELCOME TO</h4><h1>CELEBRATE IN STYLE.</h1></div>
+</section>
+
+<section class="sec" id="about"><div class="split">
+<div class="txt"><h3>At KB Events, we create <em>magical</em> experiences &amp; <em>lasting</em> memories.</h3>
+<p>KB Events is a unique design, décor and hire company for those who want to celebrate in style, not just decorate.</p>
+<p>We offer a quick, seamless and personalised service, adding a creative flair to every event, from dazzling displays to unforgettable entertainment packages.</p>
+<a class="btn" href="#contact">start planning</a></div>
+<div class="img"><img class="ph" src="birthday bash.webp" alt="About KB Events"></div></div></section>
+
+<section class="sec dark" id="services"><div class="split">
+<div class="img"><img class="ph" src="anniversery.webp" alt="Our services"></div>
+<div class="txt"><h3>Design, décor &amp; hire.</h3>
+<p>Everything is sorted for you — from the first idea to the final detail. Friendly hosts, great communication and a professional set up, every time.</p>
+<p>Our goal is simple: you enjoy the celebration while we handle the rest.</p>
+<a class="btn light" href="#contact">our services</a></div></div></section>
+
+<section class="collage">
+<img class="ph c1" src="glas of vine.webp" alt="">
+<img class="ph c2" src="birthday img.webp" alt="">
+<img class="ph c3" src="birthday bash.webp" alt="">
+<img class="ph c4" src="girls party.webp" alt="">
+<img class="ph c5" src="decoration.webp" alt="">
+<img class="ph c6" src="https://picsum.photos/seed/kb-c6/600/800" alt="">
+<h1>BE A GUEST<br>AT YOUR OWN PARTY.</h1>
+</section>
+
+<section class="sec rev" id="reviews"><h2>FROM OUR CLIENTS ❤️ &nbsp; 5.0 · 11 GOOGLE REVIEWS</h2>
+<div class="cards">
+<div class="card"><div class="st">★★★★★</div><p>“Amazing company, friendly hosts, great communication and professional set up!!”</p><small>Google review</small></div>
+<div class="card"><div class="st">★★★★★</div><p>“Service was fantastic and I would highly recommend her and her team.”</p><small>Google review</small></div>
+<div class="card"><div class="st">★★★★★</div><p>“Everything was flawless, stress-free, and such good vibes from start to finish.”</p><small>Google review</small></div>
+</div>
+<a class="btn light" href="https://www.google.com/search?q=KB+Events+Patmore+St%2C+Nine+Elms%2C+London+SW8+4JD" target="_blank" rel="noopener">view all google reviews</a></section>
+
+<section class="sec type"><p>WE CREATE</p><h2><span id="ty" class="cur"></span></h2>
+<div class="grid" style="text-align:left">
+<div><img class="ph" src="birthday bash.webp" alt="Birthdays"><small>Birthdays</small></div>
+<div><img class="ph" src="girls party.webp" alt="Weddings"><small>Weddings</small></div>
+<div><img class="ph" src="https://picsum.photos/seed/kb-celebrations/800/1066" alt="Celebrations"><small>Celebrations</small></div>
+</div></section>
+
+<section class="cta" id="contact">
+<img class="bg" src="https://picsum.photos/seed/kb-cta/1920/1080" alt="">
+<h2>PARTY STRONGLY ENCOURAGED.</h2>
+<a class="btn t" href="tel:+447506483343">CALL +44 7506 483343</a></section>
+
+<section class="enq" id="enquiry"><div class="enq-wrap">
+<div>
+<h2>Plan your celebration.</h2>
+<p class="lead">Tell us a little about your event and we’ll get back to you with ideas and a quote.</p>
+<form id="enqForm" action="#" method="post">
+<div class="f"><label for="n">Full name</label><input id="n" name="name" type="text" placeholder="Your name" required></div>
+<div class="f"><label for="e">Email</label><input id="e" name="email" type="email" placeholder="you@example.com" required></div>
+<div class="f"><label for="p">Phone</label><input id="p" name="phone" type="tel" placeholder="+44 ..."></div>
+<div class="f"><label for="t">Event type</label>
+<select id="t" name="type"><option>Birthday</option><option>Wedding</option><option>Anniversary</option><option>Baby shower</option><option>Other celebration</option></select></div>
+<div class="f"><label for="d">Event date</label><input id="d" name="date" type="date"></div>
+<div class="f"><label for="g">Guests</label><input id="g" name="guests" type="number" min="1" placeholder="Approx. number"></div>
+<div class="f full"><label for="m">Message</label><textarea id="m" name="message" placeholder="Tell us about your ideas, theme or venue"></textarea></div>
+<button class="btn" type="submit">send enquiry</button>
+<p class="ok" id="ok">Thank you! We’ll be in touch soon.</p>
+</form>
+</div>
+<div class="map-box">
+<iframe title="KB Events location" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Patmore+St,+Nine+Elms,+London+SW8+4JD&output=embed"></iframe>
+<div class="addr"><strong>KB Events</strong><br>Patmore St, Nine Elms, London SW8 4JD<br><a href="https://www.google.com/maps/search/?api=1&query=KB+Events+Patmore+St+Nine+Elms+London+SW8+4JD" target="_blank" rel="noopener">Open in Google Maps</a></div>
+</div>
+</div></section>
+
+<footer><div class="fg">
+<div><div class="logo">KB EVENTS</div><p style="opacity:.7;margin-top:.6rem">Celebrate in style.</p></div>
+<div><h4>EXPLORE</h4><a href="#about">About</a><a href="#services">Services</a><a href="#reviews">Reviews</a></div>
+<div><h4>CONNECT</h4><p>Patmore St, Nine Elms,<br>London SW8 4JD</p><a href="tel:+447506483343">+44 7506 483343</a><p>Open 24 hours</p></div>
+<div><h4>FOLLOW</h4><a href="https://www.instagram.com/kb_events_uk_" target="_blank" rel="noopener">Instagram</a><a href="https://www.tiktok.com/@kb.events.uk" target="_blank" rel="noopener">TikTok</a><a href="http://www.facebook.com/kbevents" target="_blank" rel="noopener">Facebook</a></div>
+</div><div class="copy"><span>© 2026 KB Events</span><span></span></div></footer>
+
+<script>
+var sl=document.querySelectorAll('.slide'),i=0;
+setInterval(function(){sl[i].classList.remove('on');i=(i+1)%sl.length;sl[i].classList.add('on')},4000);
+var hd=document.getElementById('hd');
+addEventListener('scroll',function(){hd.classList.toggle('shrink',scrollY>60)});
+var w=['BIRTHDAY SETUPS','WEDDING DÉCOR','PARTY HIRE'],wi=0,ci=0,del=false,el=document.getElementById('ty');
+(function tick(){var s=w[wi];ci+=del?-1:1;el.textContent=s.slice(0,ci);
+var d=del?60:90;if(!del&&ci===s.length){del=true;d=1200}else if(del&&ci===0){del=false;wi=(wi+1)%w.length;d=400}
+setTimeout(tick,d)})();
+document.getElementById('enqForm').addEventListener('submit',function(ev){ev.preventDefault();document.getElementById('ok').style.display='block';this.reset()});
+</script>
+</body>
+</html>
